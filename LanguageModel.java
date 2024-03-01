@@ -36,7 +36,7 @@ public class LanguageModel {
 		String window = "";
         char c;
         In in = new In(fileName);
-        while (!in.isEmpty() && window.length() < 4) {
+        while (!in.isEmpty() && window.length() < windowLength) {
             window += in.readChar();
         }
         while (!in.isEmpty()) {
@@ -94,7 +94,7 @@ public class LanguageModel {
 		if (initialText.length() < windowLength) {
             return initialText;
         }
-        while (initialText.length() < textLength) {
+        while (initialText.length() <= textLength) {
             String window = initialText.substring(initialText.length() - windowLength);
             if (!CharDataMap.containsKey(window)) {
                 return initialText;
@@ -116,7 +116,7 @@ public class LanguageModel {
 	}
 
     public static void main(String[] args) {
-		/*LanguageModel lm = new LanguageModel(0);
+		/*LanguageModel lm = new LanguageModel(2);
         List probs = new List();
         String s = "committee ";
         for (int i = s.length() - 1; i >= 0; i--) {

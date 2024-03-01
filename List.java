@@ -30,18 +30,8 @@ public class List {
     /** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
         Node newNode = new Node(new CharData(chr));
-        /*newNode.next = first;
+        newNode.next = first;
         first = newNode;
-        size++;*/
-        if (first == null) {
-            first = newNode;
-        } else {
-            Node current = first;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next =newNode;
-        }
         size++;
     }
     

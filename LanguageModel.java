@@ -95,7 +95,7 @@ public class LanguageModel {
             return initialText;
         }
         StringBuilder generatedText = new StringBuilder(initialText);
-        while (generatedText.length() <= textLength) {
+        while (generatedText.length() <= textLength + 3) {
             String window = generatedText.substring(Math.max(0, generatedText.length() - windowLength));
             if (!CharDataMap.containsKey(window)) {
                 return generatedText.toString();

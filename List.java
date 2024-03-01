@@ -40,10 +40,10 @@ public class List {
         Node current = first;
         String ans = "(";
         while (current != null) {
-            ans += current.cp.toString();
+            ans += current.cp.toString() + " ";
             current = current.next;
         }
-        return ans + ")";
+        return ans.substring(0, ans.length() - 1) + ")";
     }
 
     /** Returns the index of the first CharData object in this list
@@ -149,11 +149,6 @@ public class List {
         for (int i = s.length() - 1; i >= 0; i--) {
             probs.update(s.charAt(i));
         }
-        Node current = probs.first;
-        while(current != null) {
-            System.out.print(current);
-            current = current.next;
-        }
-        System.out.println(probs.get(5));
+        System.out.println(probs);
     }
 }

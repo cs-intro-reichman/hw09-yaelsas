@@ -30,15 +30,8 @@ public class List {
     /** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
         Node newNode = new Node(new CharData(chr));
-        if (first == null) {
-            first = newNode;
-        } else {
-            Node current = first;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
-        }
+        newNode.next = first;
+        first = newNode;
         size++;
     }
     
@@ -149,5 +142,13 @@ public class List {
         }
         // Returns an iterator that starts in that element
 	    return new ListIterator(current);
+    }
+    public static void main(String[] args) {
+        List probs = new List();
+        String s = "committee ";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            probs.update(s.charAt(i));
+        }
+        System.out.println(probs);
     }
 }
